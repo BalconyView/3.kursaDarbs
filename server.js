@@ -47,21 +47,14 @@ var room_namespace = io.of('/room');
 
 room_namespace.on('connection',function(socket){
  
- //redis.redisClient.hmget()
- //redis.redisClient.
- //redis.redisClient.hmget()
+ 
  Room.getRoomByName(socket.handshake.query['room'] ,(err, room) =>{
    if(!room) return;
-  if(room.bans.indexOf(socket.handshake.query['name']) > -1)
-  {
-    console.log('ss');
-  }
-  else
-  {
+  
     roomHandler(socket,redis,room_namespace,io,Rooms);
-  }
+  
  });
- //if(room.bans.indexOf(req.query.username) > -1)
+  
   
   
    
